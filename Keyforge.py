@@ -14,7 +14,7 @@ root = Tk()
 
 #Modify Window
 root.title("OBS Controller")
-root.geometry("400x500")
+root.geometry("400x550")
 bigfont = ('Arial Bold', 22)
 font = ('Arial Bold', 18)
 
@@ -82,8 +82,39 @@ sub_round.pack(side=LEFT)
 p1_frame = Frame(root)
 p1_frame.pack(side=LEFT)
 
-p1_label = Label(p1_frame, text = "Player 1", font=bigfont, pady=20)
+p1_label = Label(p1_frame, text = "Player 1", font=bigfont)
 p1_label.pack()
+
+#Player 1 Name
+
+
+
+def update_p1_name():
+	p1_name = p1_name_box.get("1.0","end-1c")
+	update_p1_name_file = open('p1_name.txt', 'w') 
+	update_p1_name_file.write(p1_name)
+
+p1_name_box = Text(p1_frame, height=1, width=10)
+p1_name_box.pack()
+p1_name_button = Button(p1_frame, text = "Update Name", command=lambda: update_p1_name())
+p1_name_button.pack()
+
+
+#Player 1 Deck Name
+
+
+
+def update_p1_deck():
+	p1_deck = p1_deck_box.get("1.0","end-1c")
+	update_p1_deck_file = open('p1_deck.txt', 'w') 
+	update_p1_deck_file.write(p1_deck)
+
+p1_deck_box = Text(p1_frame, height=1, width=10)
+p1_deck_box.pack()
+p1_deck_button = Button(p1_frame, text = "Update Deck", command=lambda: update_p1_deck())
+p1_deck_button.pack()
+	
+
 
 #AEmber 
 
@@ -256,8 +287,38 @@ p1_sub_key.pack(side=LEFT)
 p2_frame = Frame(root)
 p2_frame.pack(side=RIGHT)
 
-p2_label = Label(p2_frame, text = "Player 2", font=bigfont, pady=20)
+p2_label = Label(p2_frame, text = "Player 2", font=bigfont)
 p2_label.pack()
+
+
+#Player 2 Name
+
+def update_p2_name():
+	p2_name = p2_name_box.get("1.0","end-1c")
+	update_p2_name_file = open('p2_name.txt', 'w') 
+	update_p2_name_file.write(p2_name)
+
+p2_name_box = Text(p2_frame, height=1, width=10)
+p2_name_box.pack()
+p2_name_button = Button(p2_frame, text = "Update Name", command=lambda: update_p2_name())
+p2_name_button.pack()
+
+
+#Player 2 Deck Name
+
+
+
+def update_p2_deck():
+	p2_deck = p2_deck_box.get("1.0","end-1c")
+	update_p2_deck_file = open('p2_deck.txt', 'w') 
+	update_p2_deck_file.write(p2_deck)
+
+p2_deck_box = Text(p2_frame, height=1, width=10)
+p2_deck_box.pack()
+p2_deck_button = Button(p2_frame, text = "Update Deck", command=lambda: update_p2_deck())
+p2_deck_button.pack()
+
+
 
 #AEmber 
 
